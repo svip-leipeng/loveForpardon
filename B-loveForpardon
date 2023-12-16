@@ -1,0 +1,50 @@
+import turtle  
+import time  
+  
+# 设置画布背景为黑色  
+turtle.bgcolor("black")  
+  
+# 创建画笔  
+heart = turtle.Turtle()  
+heart.speed(0)  # 最快速度  
+  
+# 设置画笔颜色为红色  
+heart.color("red")  
+  
+# 绘制心形  
+def draw_heart(t, size):  
+    t.left(140)  
+    t.forward(size)  
+    t.circle(size / 2, 180)  
+    t.right(140)  
+    t.circle(size / 2, 180)  
+    t.forward(size)  
+  
+# 绘制心形并使其居中闪动  
+def draw_and_blink(heart, size):  
+    while True:  
+        heart.clear()  
+        heart.forward(size)  
+        heart.right(45)  
+        heart.circle(size / 2, 180)  
+        heart.right(90)  
+        heart.circle(size / 2, 180)  
+        heart.forward(size)  
+        heart.clear()  
+        heart.forward(size)  
+        heart.right(135)  
+        heart.circle(size / 2, 180)  
+        heart.right(45)  
+        heart.circle(size / 2, 180)  
+        heart.forward(size)  
+        time.sleep(0.5)  # 暂停0.5秒，可以根据需要调整闪烁频率  
+        draw_heart(heart, size)  # 绘制完整的红心  
+        time.sleep(0.5)  # 同上，可以根据需要调整闪烁频率  
+  
+# 设置画布大小和位置，使红心居中闪动  
+heart.penup()  
+heart.goto(-300, -300)  # 根据需要调整画布大小和位置，使红心居中闪动  
+heart.pendown()  
+draw_and_blink(heart, 100)  # 设置红心的大小，可以根据需要调整大小和闪烁频率  
+  
+turtle.done()  # 结束绘图，保持画布不关闭
